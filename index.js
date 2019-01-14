@@ -17,6 +17,7 @@ app.get('/', (req, res) => {
 app.get('/:dimentions', (req, res) => {
   let [x, y] = dimentionsParser(req.params.dimentions);
   var image = PNGImage.createImage(x, y ? y : x);
+  res.contentType('png');
   res.send(image);
 });
 
